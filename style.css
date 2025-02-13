@@ -9,119 +9,238 @@
 }
 
 body {
-    background-color: var(--unnaGreen);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* margin: 24px; */
+    overflow: hidden;
     width: 100vw;
     height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--unnaGreen);
+    background: url('/img/bg-pattern.png');
+    background-color: var(--unnaGreen);
     font-family: "vinyl", sans-serif;
     font-weight: 400;
     font-style: normal;
     color: white;
+    font-size: 2rem;
+    text-align: center;
+    overflow: hidden;
+
 }
 
-.logo-wrapper {
+main {
+    /* margin: 16px; */
+    padding: 56px 24px;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
-    height: 400px;
-    width: 300px;
-    /* background-color: rgb(132, 132, 116); */
-}
-
-.logo__bulle {
-    position: relative;
-    display: flex;
-    /* align-items: center; */
-    justify-content: center;
-    height: 300px;
-    width: 100%;
-    /* border: 1px solid rebeccapurple; */
+    justify-content: space-between;
+    /* margin: 8px; */
+    height: 200%;
+    background-color: var(--unnaGreen);
+    overflow-x: hidden;
     /* background-color: blue; */
 }
 
-.logo__bulle svg {
+
+/* Static background pattern applied to the entire viewport */
+.background {
+    /* padding: 24px; */
     position: absolute;
-    width: 90%;
-    height: auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/img/bg-pattern.png');
+    z-index: 0; /* Keep it behind the SVG */
 }
 
-#unnaPattern {
-    height: 200px;
+.circle {
+    position: absolute;
+    background: transparent; /* Make sure the div itself is transparent */
+    pointer-events: none; /* Ensure circles don't block interaction */
+    width: 100%;
+    height: 100%;
+    background-color: blueviolet;
 }
 
-.unna-dots {
+.logo {
     position: relative;
-    width: 200%;
-    height: 200%;
-    scale: 200%;
-    x: -50%;
-    y: -50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    height: auto;
+    width: 100%;
+    margin-bottom: 24px;
 }
 
-#unna_bulle_kontur-bg-path {
-    /* fill: none; */
-    /* stroke: black; */
-    stroke-width: 2;
-    animation: morph 15s infinite ease-in-out;
+.logo img {
+    height: 200px;
+    width: 200px;
 }
 
-@keyframes morph {
-    25% {
-        d: path("M188.95,85.58c-2.18-1.88-2.74-3.39-1.88-6.23,1.82-6.04,2.59-12.28,3.1-18.63C194.39,21.72,170.36,1.74,133.38,0c-37.52.3-54.47,9.61-82.75,33.01C23.83,59.95.87,83.89.01,126.49c-.27,16.62,3.69,24.15,13.42,37.12,14.62,19.4,41.01,28.02,64.58,24.65,2.17-.53,4.04-.27,5.97.67,4.62,2.24,9.33,3.89,14.55,4.5,21.02,2.42,42.24-6.75,56.71-21.77,15.08-15.84,28.24-33.53,37.58-53.36,5.72-9.4,4.47-25.2-3.88-32.72Z");
-    }
-    /* top left out*/
-    45% {
-        d: path("M188.95,85.58c-2.18-1.88-2.74-3.39-1.88-6.23,1.82-6.04,2.59-12.28,3.1-18.63C194.39,21.72,170.36,1.74,133.38,0c-37.52.3-62.02,2.06-90.3,25.46C16.28,52.4.87,83.89.01,126.49c-.27,16.62,3.69,24.15,13.42,37.12,14.62,19.4,41.01,28.02,64.58,24.65,2.17-.53,4.04-.27,5.97.67,4.62,2.24,9.33,3.89,14.55,4.5,21.02,2.42,42.24-6.75,56.71-21.77,15.08-15.84,28.24-33.53,37.58-53.36,5.72-9.4,4.47-25.2-3.88-32.72Z");
-    }
-    /* top left in */
-    50% {
-        d: path("M188.95,85.58c-2.18-1.88-2.74-3.39-1.88-6.23,1.82-6.04,2.59-12.28,3.1-18.63C194.39,21.72,170.36,1.74,133.38,0c-37.52.3-54.47,21.33-82.75,44.73C23.83,71.66.87,83.89.01,126.49c-.27,16.62,3.69,24.15,13.42,37.12,14.62,19.4,41.01,28.02,64.58,24.65,2.17-.53,4.04-.27,5.97.67,4.62,2.24,9.33,3.89,14.55,4.5,21.02,2.42,42.24-6.75,56.71-21.77,15.08-15.84,28.24-33.53,37.58-53.36,5.72-9.4,4.47-25.2-3.88-32.72Z");
-    }
-    /* bottom right in */
-    55% {
-        d: path("M188.95,85.58c-2.18-1.88-2.74-3.39-1.88-6.23,1.82-6.04,2.59-12.28,3.1-18.63C194.39,21.72,170.36,1.74,133.38,0c-37.52.3-54.47,9.61-82.75,33.01C23.83,59.95.87,83.89.01,126.49c-.27,16.62,3.69,24.15,13.42,37.12,14.62,19.4,41.01,28.02,64.58,24.65,2.17-.53,4.04-.27,5.97.67,4.62,2.24,9.33,3.89,14.55,4.5,21.02,2.42,31.79-17.2,46.26-32.22,15.08-15.84,38.69-23.08,48.03-42.91,5.72-9.4,4.47-25.2-3.88-32.72Z");
-    }
-    
-    65% {
-        d: path("M188.95,85.58c-2.18-1.88-2.74-3.39-1.88-6.23,1.82-6.04,2.59-12.28,3.1-18.63C194.39,21.72,170.36,1.74,133.38,0c-37.52.3-54.47,21.33-82.75,44.73C23.83,71.66.87,83.89.01,126.49c-.27,16.62,3.69,24.15,13.42,37.12,14.62,19.4,41.01,28.02,64.58,24.65,2.17-.53,4.04-.27,5.97.67,4.62,2.24,9.33,3.89,14.55,4.5,21.02,2.42,42.24-6.75,56.71-21.77,15.08-15.84,28.24-33.53,37.58-53.36,5.72-9.4,4.47-25.2-3.88-32.72Z");
-    }
-    75% {
-        d: path("M188.95,85.58c-2.18-1.88-2.74-3.39-1.88-6.23,1.82-6.04.56-12.79,3.1-18.63C211.33,12.09,171.81.91,133.38,0c-37.52.3-54.47,9.61-82.75,33.01C23.83,59.95.87,83.89.01,126.49c-.27,16.62,3.69,24.15,13.42,37.12,14.62,19.4,41.01,28.02,64.58,24.65,2.17-.53,4.04-.27,5.97.67,4.62,2.24,9.33,3.89,14.55,4.5,21.02,2.42,42.24-6.75,56.71-21.77,15.08-15.84,28.24-33.53,37.58-53.36,5.72-9.4,4.47-25.2-3.88-32.72Z")
-    }
-    90% {
-        d: path("M188.96,85.58c-2.18-1.88-2.74-3.39-1.88-6.23,1.82-6.04,2.59-12.28,3.1-18.63C194.4,21.72,170.37,1.74,133.39,0c-37.52.3-54.47,9.61-82.75,33.01C23.83,59.95.88,83.89.02,126.49c-.27,16.62,2.29,25.32,13.42,37.12,10.7,11.34,19.92,12.81,45.59,13.73,2.17-.53,23.04,10.65,24.96,11.58,4.62,2.24,9.33,3.89,14.55,4.5,21.02,2.42,42.24-6.75,56.71-21.77,15.08-15.84,28.24-33.53,37.58-53.36,5.72-9.4,4.47-25.2-3.88-32.72Z");
-    }
-
-    100% {
-        d: path("M188.95,85.58c-2.18-1.88-2.74-3.39-1.88-6.23,1.82-6.04,2.59-12.28,3.1-18.63C194.39,21.72,170.36,1.74,133.38,0c-37.52.3-54.47,9.61-82.75,33.01C23.83,59.95.87,83.89.01,126.49c-.27,16.62,3.69,24.15,13.42,37.12,14.62,19.4,41.01,28.02,64.58,24.65,2.17-.53,4.04-.27,5.97.67,4.62,2.24,9.33,3.89,14.55,4.5,21.02,2.42,42.24-6.75,56.71-21.77,15.08-15.84,28.24-33.53,37.58-53.36,5.72-9.4,4.47-25.2-3.88-32.72Z");
-    }
+.logo-text {
+    /* align-self: flex-start; */
+    justify-self: start;
+    /* background-color: aqua; */
 }
-
-.unna__text {
-    background-color: antiquewhite;
-}
-
-
-.unna_bulle_kontur-text {
-    fill: none;
-}
-
-.unna__text__letter {
-    fill: var(--unnaGreen);
-}
-
-.cls-3 {
-    fill: url(#Unna_Vit);
-
-}
-
-.logo__tagline {
-    /* margin-top: 16px; */
+.address {
+    margin-top: 16px;
     flex: 1;
-    font-size: 2rem;
+    font-size: 1rem;
+    /* height: 300px; */
+    /* background-color: pink; */
     text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.circle {
+    position: absolute;
+    top: 56px;
+    left: 32px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: black;
+    background: url('/img/bg-pattern.png');
+    transition: 5s ease-in-out;
+}
+
+.circle.move {
+    top: 32px;
+}
+
+.background {
+    clip-path: circle(0% at 0% 0%);
+    -webkit-clip-path: circle(0% at 0% 0%);
+    /* animation: updateClipPath 5s infinite;
+    -webkit-animation: updateClipPath 5s */
+}
+
+.circle {
+    z-index: 100;
+    /* background-color: pink; */
+    position: absolute;
+    border-radius: 50%; /* Make them circular */
+    /* background-color: rgba(255, 255, 255, 0.5); Make the circles semi-transparent */
+    pointer-events: none; /* Ensure circles don't block interaction */
+}
+
+#circle1 {
+
+    width: 100px;
+    height: 100px;
+    animation: moveCircle1 5s infinite ease-in-out alternate-reverse, 
+    resizeCircle1 5s infinite ease-in-out;
+}
+
+#circle2 {
+    width: 120px;
+    height: 120px;
+    animation: moveCircle2 6s infinite ease-in-out alternate-reverse, 
+    resizeCircle2 6s infinite ease-in-out;
+    /* background-color: black; */
+}
+
+#circle3 {
+    width: 120px;
+    height: 120px;
+    animation: moveCircle3 7.5s infinite ease-in-out alternate-reverse,
+    resizeCircle2 7.5s infinite ease-in-out;
+    /* backgrouxnd-color: aqua; */
+}
+
+
+@keyframes moveCircle1 {
+    0% {
+        top: 90%;
+        left: 25%;
+    }
+    50% {
+        top: 40%;
+        left: 50%;
+    }
+    100% {
+        top: 82%;
+        left: 80%;
+    }
+}
+
+@keyframes moveCircle2 {
+    0% {
+        top: 80%;
+        left: 35%;
+    }
+    50% {
+        top: 60%;
+        left: 50%;
+    }
+    100% {
+        top: 80%;
+        left: 60%;
+    }
+}
+
+@keyframes moveCircle3 {
+    0% {
+        top: 90%;
+        left: 25%;
+    }
+    50% {
+        top: 50%;
+        left: 40%;
+    }
+    100% {
+        top: 85%;
+        left: 50%;
+    }
+}
+
+@keyframes resizeCircle1 {
+    0% {
+        width: 10px;
+        height: 10px;
+    }
+    50% {
+        width: 150px;
+        height: 150px;
+    }
+    100% {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@keyframes resizeCircle2 {
+    0% {
+        width: 20px;
+        height: 20px;
+    }
+    50% {
+        width: 180px;
+        height: 180px;
+    }
+    100% {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Make circles to "cut out" sections of the background */
+@keyframes updateClipPath {
+    0% {
+        clip-path: circle(0% at 0% 0%);
+        -webkit-clip-path: circle(0% at 0% 0%);
+    }
+    50% {
+        clip-path: circle(40% at 10% 10%);
+        -webkit-clip-path: circle(40% at 10% 10%);
+    }
+    100% {
+        clip-path: circle(0% at 0% 0%);
+        -webkit-clip-path: circle(0% at 0% 0%);
+    }
 }
