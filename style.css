@@ -58,7 +58,7 @@ section:last-child {
 
 
 /* Static background pattern applied to the entire viewport */
-.background {
+.pattern-background {
     /* padding: 24px; */
     position: absolute;
     top: 0;
@@ -69,6 +69,7 @@ section:last-child {
     z-index: 0; /* Keep it behind the SVG */
     clip-path: circle(0% at 0% 0%);
     -webkit-clip-path: circle(0% at 0% 0%);
+    pointer-events: none;
 }
 
 .circle-container {

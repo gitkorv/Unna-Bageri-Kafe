@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const background = document.querySelector('.background');
+    const patternBackground = document.querySelector('.pattern-background');
     let angle = 0;
     let sizeAngle = 0;
 
@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const radius = 40 + 5 * Math.sin(sizeAngle); // Base radius 10%, fluctuates by ±5%
 
         // Update clip-path dynamically
-        background.style.clipPath = `circle(${radius}% at ${centerX}% ${centerY}%)`;
-        background.style.webkitClipPath = `circle(${radius}% at ${centerX}% ${centerY}%)`;
+        patternBackground.style.clipPath = `circle(${radius}% at ${centerX}% ${centerY}%)`;
+        patternBackground.style.webkitClipPath = `circle(${radius}% at ${centerX}% ${centerY}%)`;
 
         // Increase angles to animate motion
         angle += 0.02; // Controls horizontal/vertical speed
