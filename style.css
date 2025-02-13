@@ -25,22 +25,35 @@ body {
     font-size: 2rem;
     text-align: center;
     overflow: hidden;
+    display: flex;
+    align-items: center;
 
 }
 
 main {
-    /* margin: 16px; */
-    padding: 56px 24px;
     position: relative;
+    width: 100%;
+    background-color: var(--unnaGreen);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    /* background-color: blue; */
+}
+
+section {
+    padding: 56px 24px;
+
+    scroll-snap-align: start;
+    height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    /* margin: 8px; */
-    height: 200%;
-    background-color: var(--unnaGreen);
-    overflow-x: hidden;
-    /* background-color: blue; */
+}
+
+section:last-child {
+    background: linear-gradient(var(--unnaGreen), pink);
 }
 
 
@@ -54,16 +67,18 @@ main {
     height: 100%;
     background: url('/img/bg-pattern.png');
     z-index: 0; /* Keep it behind the SVG */
+    clip-path: circle(0% at 0% 0%);
+    -webkit-clip-path: circle(0% at 0% 0%);
 }
 
-.circle {
+.circle-container {
     position: absolute;
-    background: transparent; /* Make sure the div itself is transparent */
-    pointer-events: none; /* Ensure circles don't block interaction */
-    width: 100%;
     height: 100%;
-    background-color: blueviolet;
+    width: 75%;
+    /* background-color: orange; */
+    pointer-events: none;
 }
+
 
 .logo {
     position: relative;
@@ -82,19 +97,30 @@ main {
 }
 
 .logo-text {
+    font-family: "vinyl", sans-serif;
+    font-weight: 400;
+    font-style: normal;
     /* align-self: flex-start; */
     justify-self: start;
     /* background-color: aqua; */
 }
-.address {
+.address, .open {
+    width: 100%;
     margin-top: 16px;
     flex: 1;
-    font-size: 1.25rem;
-    /* height: 300px; */
-    /* background-color: pink; */
     text-align: center;
     display: flex;
     flex-direction: column;
+    /* background-color: antiquewhite; */
+}
+
+.address {
+    font-size: 1.25rem;
+}
+
+.open {
+    text-align: start;
+    font-size: 3rem;
 }
 
 .circle {
@@ -104,33 +130,18 @@ main {
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background-color: black;
     background: url('/img/bg-pattern.png');
     transition: 5s ease-in-out;
+    z-index: 100;
+    pointer-events: none; /* Ensure circles don't block interaction */
+    /* filter: invert(1) sepia(1) saturate(10) hue-rotate(100deg); */
 }
 
 .circle.move {
     top: 32px;
 }
 
-.background {
-    clip-path: circle(0% at 0% 0%);
-    -webkit-clip-path: circle(0% at 0% 0%);
-    /* animation: updateClipPath 5s infinite;
-    -webkit-animation: updateClipPath 5s */
-}
-
-.circle {
-    z-index: 100;
-    /* background-color: pink; */
-    position: absolute;
-    border-radius: 50%; /* Make them circular */
-    /* background-color: rgba(255, 255, 255, 0.5); Make the circles semi-transparent */
-    pointer-events: none; /* Ensure circles don't block interaction */
-}
-
 #circle1 {
-
     width: 100px;
     height: 100px;
     animation: moveCircle1 5s infinite ease-in-out alternate-reverse, 
@@ -207,6 +218,7 @@ main {
     50% {
         width: 150px;
         height: 150px;
+        
     }
     100% {
         width: 10px;
