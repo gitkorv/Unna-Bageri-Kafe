@@ -112,6 +112,7 @@ section:last-child {
     text-align: center;
     display: flex;
     flex-direction: column;
+    pointer-events: none;
     /* background-color: antiquewhite; */
 }
 
