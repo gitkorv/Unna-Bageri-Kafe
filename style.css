@@ -6,6 +6,7 @@
 
 :root {
     --unnaGreen: #95D3C2;
+    --unnaOrange: #d39c95;
 }
 
 html {
@@ -48,6 +49,7 @@ main {
 }
 
 section {
+    position: relative;
     padding: 56px 24px;
     overflow-y: scroll;
 
@@ -58,40 +60,32 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    background-color: var(--unnaGreen);
-    background: linear-gradient(var(--unnaGreen) 40%, pink);
-
-
-
+    /* background-color: var(--unnaGreen); */
 }
 
-section:last-child {
-    background: linear-gradient(pink, var(--unnaGreen) 60%);
-
+.section-head {
+    background: linear-gradient(var(--unnaGreen) 40%, var(--unnaOrange));
 }
 
+.section-photos {
+    background: linear-gradient(var(--unnaOrange) 5%, var(--unnaGreen) 99%);
 
-/* Static background pattern applied to the entire viewport */
-.pattern-background {
-    /* padding: 24px; */
-    position: absolute;
-    top: 0;
-    left: 0;
+    /* background: black; */
+    height: fit-content;
+    padding-bottom: 160px;
+}
+
+.section-open {
+    background: linear-gradient(var(--unnaGreen) 40%, var(--unnaOrange));
+}
+
+.section-photos .photo-container {
+    position: relative;
     width: 100%;
-    height: 100%;
-    background: url('/img/bg-pattern.png');
-    z-index: 0; /* Keep it behind the SVG */
-    clip-path: circle(0% at 0% 0%);
-    -webkit-clip-path: circle(0% at 0% 0%);
-    pointer-events: none;
 }
-
-.circle-container {
-    position: absolute;
-    height: 100%;
-    width: 75%;
-    /* background-color: orange; */
-    pointer-events: none;
+.section-photos .photo-container img {
+    position: relative;
+    width: 100%;
 }
 
 
@@ -159,13 +153,36 @@ section:last-child {
     stroke: orange;
 }
 
+/* Static background pattern applied to the entire viewport */
+.pattern-background {
+    /* padding: 24px; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/img/bg-pattern.png');
+    z-index: 0; /* Keep it behind the SVG */
+    /* clip-path: circle(0% at 0% 0%);
+    -webkit-clip-path: circle(0% at 0% 0%); */
+    pointer-events: none;
+}
+
+.circle-container {
+    position: absolute;
+    height: 100%;
+    width: 75%;
+    /* background-color: orange; */
+    pointer-events: none;
+}
+
 .circle {
     position: absolute;
     top: 56px;
     left: 32px;
     height: 20px;
     width: 20px;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     background: url('/img/bg-pattern.png');
     transition: 5s ease-in-out;
     z-index: 100;
@@ -180,23 +197,23 @@ section:last-child {
 #circle1 {
     width: 100px;
     height: 100px;
-    animation: moveCircle1 5s infinite ease-in-out alternate-reverse, 
-    resizeCircle1 5s infinite ease-in-out;
+    animation: moveCircle1 6s infinite ease-in-out alternate-reverse, 
+    resizeCircle1 6s infinite ease-in-out;
 }
 
 #circle2 {
     width: 120px;
     height: 120px;
-    animation: moveCircle2 6s infinite ease-in-out alternate-reverse, 
-    resizeCircle2 6s infinite ease-in-out;
+    animation: moveCircle2 7s infinite ease-in-out alternate-reverse, 
+    resizeCircle2 7s infinite ease-in-out;
     /* background-color: black; */
 }
 
 #circle3 {
     width: 120px;
     height: 120px;
-    animation: moveCircle3 7.5s infinite ease-in-out alternate-reverse,
-    resizeCircle2 7.5s infinite ease-in-out;
+    animation: moveCircle3 8.5s infinite ease-in-out alternate-reverse,
+    resizeCircle2 8.5s infinite ease-in-out;
     /* backgrouxnd-color: aqua; */
 }
 
@@ -278,7 +295,7 @@ section:last-child {
 }
 
 /* Make circles to "cut out" sections of the background */
-@keyframes updateClipPath {
+/* @keyframes updateClipPath {
     0% {
         clip-path: circle(0% at 0% 0%);
         -webkit-clip-path: circle(0% at 0% 0%);
@@ -291,7 +308,7 @@ section:last-child {
         clip-path: circle(0% at 0% 0%);
         -webkit-clip-path: circle(0% at 0% 0%);
     }
-}
+} */
 
 .ticker-wrapper {
     position: absolute;
