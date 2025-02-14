@@ -97,13 +97,14 @@ section:last-child {
 
 .logo {
     position: relative;
+    flex: .75;
     display: flex;
-    align-items: center;
+    align-items: end;
     justify-content: center;
     top: 0;
     height: auto;
     width: 100%;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .logo img {
@@ -135,7 +136,7 @@ section:last-child {
 }
 
 .open {
-    margin-top: 56px;
+    margin-top: 70px;
     flex: 0;
     text-align: start;
     font-size: 3rem;
@@ -292,10 +293,12 @@ section:last-child {
 
 .ticker-wrapper {
     position: absolute;
+    display: flex;
+    align-items: end;
     /* bottom: 15%; */
     display: flex;
     width: 110%;
-    height: 150px;
+    height: 15%;
     /* scale: 75%; */
     /* background-color: rgb(133, 133, 163); */
 }
@@ -314,7 +317,7 @@ text {
     font-size: 2.4rem;
     fill: var(--unnaGreen);
     /* fill: black; */
-    transform: translateY(4px); /* Move text down */
+    transform: translateY(12px); /* Move text down */
 
 
 }
