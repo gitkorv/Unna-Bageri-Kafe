@@ -45,7 +45,7 @@ main {
     height: 100%;
     width: 100%;
     overflow-x: hidden;
-    scroll-snap-type: y proximity;
+    scroll-snap-type: y mandatory;
     /* background-color: blue; */
 }
 
