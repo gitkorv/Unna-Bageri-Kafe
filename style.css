@@ -8,11 +8,20 @@
     --unnaGreen: #95D3C2;
 }
 
-body {
-    /* margin: 24px; */
+html {
+    position: absolute;
+    top: 0;
+    left: 0;
     overflow: hidden;
     width: 100vw;
-    height: 100dvh;
+    height: 100vh;
+}
+
+body {
+    position: relative;
+    /* margin: 24px; */
+    overflow: hidden;
+    height: 100%;
     display: flex;
     flex-direction: column;
     /* background-color: var(--unnaGreen); */
@@ -25,22 +34,22 @@ body {
     font-size: 2rem;
     text-align: center;
     overflow: hidden;
-    display: flex;
     align-items: center;
 
 }
 
 main {
-    position: relative;
+    position: absolute;
+    height: 100%;
     width: 100%;
     overflow-x: hidden;
-    overflow-y: scroll;
     scroll-snap-type: y mandatory;
     /* background-color: blue; */
 }
 
 section {
     padding: 56px 24px;
+    overflow-y: scroll;
 
     scroll-snap-align: start;
     height: 100vh;
@@ -50,11 +59,15 @@ section {
     align-items: center;
     justify-content: space-between;
     background-color: var(--unnaGreen);
+    background: linear-gradient(var(--unnaGreen) 40%, pink);
+
+
 
 }
 
 section:last-child {
-    background: linear-gradient(var(--unnaGreen), pink);
+    background: linear-gradient(pink, var(--unnaGreen) 60%);
+
 }
 
 
@@ -122,6 +135,7 @@ section:last-child {
 }
 
 .open {
+    margin-top: 56px;
     flex: 0;
     text-align: start;
     font-size: 3rem;
@@ -275,3 +289,45 @@ section:last-child {
         -webkit-clip-path: circle(0% at 0% 0%);
     }
 }
+
+.ticker-wrapper {
+    position: absolute;
+    /* bottom: 15%; */
+    display: flex;
+    width: 110%;
+    height: 150px;
+    /* scale: 75%; */
+    /* background-color: rgb(133, 133, 163); */
+}
+.wave-text {
+    position: absolute;
+    width: 100%;
+    height: 150px;
+    overflow: visible;
+    /* stroke-width: 1px; */
+    z-index: 500;
+}
+
+text {
+    word-spacing: 1rem;
+    letter-spacing: .25rem;
+    font-size: 2.4rem;
+    fill: var(--unnaGreen);
+    /* fill: black; */
+    transform: translateY(4px); /* Move text down */
+
+
+}
+
+/* @keyframes scrollText {
+    0% {
+        startOffset: 100%;
+    }
+    100% {
+        startOffset: 0%;
+    }
+}
+
+textPath {
+    animation: scrollText 10s linear infinite;
+} */
