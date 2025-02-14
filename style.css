@@ -372,7 +372,8 @@ section {
 .ticker-wrapper {
     position: absolute;
     display: flex;
-    align-items: center;
+    /* align-self: flex-end; */
+    /* align-items: end; */
     top: 0;
     /* bottom: 15%; */
     display: flex;
@@ -385,6 +386,8 @@ section {
 
 .ticker-wrapper svg {
     height: auto;
+    /* rotate: 10deg; */
+    transform-origin: right;
 }
 
 .wave-text {
@@ -420,6 +423,25 @@ textPath {
     animation: scrollText 10s linear infinite;
 } */
 
-@media (min-width: 768px) {
+@media (min-width: 374px) {
+    .logo img {
+        height: 250px;
+        width: 250px;
+    }
+}
 
+@media (min-width: 767px) {
+    /* .logo {
+        justify-content: start;
+    } */
+    .ticker-wrapper {
+        /* top: 20px; */
+        align-self: flex-end;
+        width: 80%;
+    }
+    .ticker-wrapper svg {
+        top: 150px;
+        right: -50px;
+        rotate: 25deg;
+    }
 }
