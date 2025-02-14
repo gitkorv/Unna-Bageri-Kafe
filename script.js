@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const centerY = 100 + 3 * Math.sin(angle); // Moves slightly up and down (radius 3)
 
         // Dynamic size change
-        const radius = 40 + 5 * Math.sin(sizeAngle); // Base radius 10%, fluctuates by ±5%
+        const radius = 35 + 5 * Math.sin(sizeAngle); // Base radius 10%, fluctuates by ±5%
 
         // Update clip-path dynamically
         patternBackground.style.clipPath = `circle(${radius}% at ${centerX}% ${centerY}%)`;

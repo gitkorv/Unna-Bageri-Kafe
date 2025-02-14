@@ -68,7 +68,7 @@ section {
 }
 
 .section-photos {
-    background: linear-gradient(var(--unnaOrange) 5%, var(--unnaGreen) 99%);
+    background: linear-gradient(var(--unnaOrange), var(--unnaGreen) 15%);
 
     /* background: black; */
     height: fit-content;
@@ -79,14 +79,6 @@ section {
     background: linear-gradient(var(--unnaGreen) 40%, var(--unnaOrange));
 }
 
-.section-photos .photo-container {
-    position: relative;
-    width: 100%;
-}
-.section-photos .photo-container img {
-    position: relative;
-    width: 100%;
-}
 
 
 .logo {
@@ -114,6 +106,42 @@ section {
     justify-self: start;
     /* background-color: aqua; */
 }
+
+.photo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    width: 100%;
+}
+
+.photo-item {
+    position: relative;
+    display: flex;
+
+    /* overflow: hidden; */
+}
+
+.photo-item img {
+    position: relative;
+    border: 4px dotted white;
+    border-radius: 48px;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.photo-text {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 15%;
+    left: -8px;
+    background-color:white;
+    color: var(--unnaGreen);
+    padding: 4px;
+}
+
 .address, .open {
     width: 100%;
     margin-top: 16px;
@@ -136,6 +164,10 @@ section {
     text-align: start;
     font-size: 3rem;
     /* background-color: #95D3C2; */
+}
+
+.open-span:first-child, .open-span:last-child {
+    font-size: 2rem;
 }
 
 .social {
@@ -178,10 +210,10 @@ section {
 
 .circle {
     position: absolute;
-    top: 56px;
-    left: 32px;
-    height: 20px;
-    width: 20px;
+    top: 90%;
+    left: 50%;
+    height: 10px;
+    width: 10px;
     /* border-radius: 50%; */
     background: url('/img/bg-pattern.png');
     transition: 5s ease-in-out;
@@ -190,33 +222,12 @@ section {
     /* filter: invert(1) sepia(1) saturate(10) hue-rotate(100deg); */
 }
 
-.circle.move {
-    top: 32px;
-}
-
 #circle1 {
-    width: 100px;
-    height: 100px;
+    width: 10px;
+    height: 10px;
     animation: moveCircle1 6s infinite ease-in-out alternate-reverse, 
     resizeCircle1 6s infinite ease-in-out;
 }
-
-#circle2 {
-    width: 120px;
-    height: 120px;
-    animation: moveCircle2 7s infinite ease-in-out alternate-reverse, 
-    resizeCircle2 7s infinite ease-in-out;
-    /* background-color: black; */
-}
-
-#circle3 {
-    width: 120px;
-    height: 120px;
-    animation: moveCircle3 8.5s infinite ease-in-out alternate-reverse,
-    resizeCircle2 8.5s infinite ease-in-out;
-    /* backgrouxnd-color: aqua; */
-}
-
 
 @keyframes moveCircle1 {
     0% {
@@ -224,13 +235,37 @@ section {
         left: 25%;
     }
     50% {
-        top: 40%;
-        left: 50%;
+        top: 60%;
+        left: 30%;
     }
     100% {
         top: 82%;
         left: 80%;
     }
+}
+
+@keyframes resizeCircle1 {
+    0% {
+        width: 10px;
+        height: 10px;
+    }
+    50% {
+        width: 125px;
+        height: 125px;
+        
+    }
+    100% {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+#circle2 {
+    width: 20px;
+    height: 20px;
+    animation: moveCircle2 7s infinite ease-in-out alternate-reverse, 
+    resizeCircle2 7s infinite ease-in-out;
+    /* background-color: black; */
 }
 
 @keyframes moveCircle2 {
@@ -248,6 +283,29 @@ section {
     }
 }
 
+@keyframes resizeCircle2 {
+    0% {
+        width: 20px;
+        height: 20px;
+    }
+    50% {
+        width: 150px;
+        height: 150px;
+    }
+    100% {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+#circle3 {
+    width: 20px;
+    height: 20px;
+    animation: moveCircle3 8.5s infinite ease-in-out alternate-reverse,
+    resizeCircle3 8.5s infinite ease-in-out;
+    /* backgrouxnd-color: aqua; */
+}
+
 @keyframes moveCircle3 {
     0% {
         top: 90%;
@@ -258,41 +316,29 @@ section {
         left: 40%;
     }
     100% {
-        top: 85%;
-        left: 50%;
+        top: 80%;
+        left: 60%;
     }
 }
 
-@keyframes resizeCircle1 {
-    0% {
-        width: 10px;
-        height: 10px;
-    }
-    50% {
-        width: 150px;
-        height: 150px;
-        
-    }
-    100% {
-        width: 10px;
-        height: 10px;
-    }
-}
-
-@keyframes resizeCircle2 {
+@keyframes resizeCircle3 {
     0% {
         width: 20px;
         height: 20px;
     }
     50% {
-        width: 180px;
-        height: 180px;
+        width: 140px;
+        height: 140px;
     }
     100% {
-        width: 20px;
-        height: 20px;
+        width: 15px;
+        height: 15px;
     }
 }
+
+
+
+
 
 /* Make circles to "cut out" sections of the background */
 /* @keyframes updateClipPath {
