@@ -88,9 +88,9 @@ section {
 .section-photos {
     background: linear-gradient(var(--unnaOrange), var(--unnaGreen) 15%);
 
-    background: black;
+    /* background: black; */
     /* height: fit-content; */
-    padding-bottom: 160px;
+    padding-bottom: 200px;
 }
 
 .section-open {
