@@ -41,7 +41,7 @@ body {
 }
 
 .unna-dots-wrapper {
-    visibility: hidden;
+    /* visibility: hidden; */
     position: absolute;
     top: 0;
     display: flex;
