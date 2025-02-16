@@ -468,9 +468,9 @@ section {
 }
 
 .ticker-wrapper {
-    position: absolute;
+    /* position: absolute; */
     /* position: sticky; */
-    top: 70%;
+    top: 0;
     /* top: 50%; */
     display: flex;
     /* flex-direction: column; */
@@ -481,7 +481,7 @@ section {
     /* bottom: 15%; */
     display: flex;
     width: 100%;
-    height: fit-content;
+    height: 100%;
     /* height: fit-content; */
     /* background-color: rgb(133, 133, 163); */
     pointer-events: none;
@@ -489,12 +489,14 @@ section {
 }
 
 .ticker-container {
+    position: absolute;
+    top: 70%;
 
     /* background-color: orange; */
     display: flex;
     /* flex-direction: column; */
     width: 100%;
-    height: 200px;
+    height: 100px;
     z-index: 5000;
     scale: 1.1;
 
