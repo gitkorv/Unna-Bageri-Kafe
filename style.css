@@ -19,13 +19,12 @@ html {
 }
 
 body {
-    position: relative;
+    position: absolute;
     /* margin: 24px; */
     overflow: hidden;
     height: 100%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    display: block;
     /* background-color: var(--unnaGreen); */
     /* background: url('/img/bg-pattern.png'); */
     /* background-color: var(--unnaGreen); */
@@ -41,11 +40,12 @@ body {
 }
 
 main {
-    position: relative;
+    position: absolute;
     top: 0;
     height: 100dvh;
     width: 100%;
     overflow-x: hidden;
+    overflow-y: scroll;
     scroll-snap-type: y mandatory;
     background-color: blue;
     z-index: 10000;
@@ -54,7 +54,7 @@ main {
 section {
     position: relative;
     padding: 24px 24px;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 
     scroll-snap-align: start;
     height: 100%;
@@ -458,28 +458,19 @@ section {
 
 .ticker-wrapper {
     position: absolute;
-    /* position: sticky; */
     top: 0;
-    /* top: 50%; */
-    display: flex;
-    /* flex-direction: column; */
-    /* align-self: flex-end; */
-    /* align-items: center; */
-    justify-content: center;
-    /* bottom: 0; */
-    /* bottom: 15%; */
-    display: flex;
+    display: block;
     width: 100%;
     height: 100%;
     /* height: fit-content; */
     /* background-color: rgb(133, 133, 163); */
     pointer-events: none;
-    z-index: 5000;
+    z-index: 10000;
 }
 
 .ticker-container {
     position: absolute;
-    bottom: 50%;
+    bottom: 20%;
 
     /* background-color: orange; */
     display: flex;
@@ -487,7 +478,9 @@ section {
     width: 100%;
     height: 100px;
     z-index: 5000;
-    scale: 1.1;
+    scale: 1.05;
+    z-index: 10000;
+
 
 }
 

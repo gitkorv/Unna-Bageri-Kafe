@@ -10,35 +10,7 @@
 </head>
 
 <body>
-
-   
-
-
-
     <main class="main-wrapper">
-
-        <div class="ticker-wrapper">
-            <div class="ticker-container">
-                <svg class="wave-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 50" height="200"
-                    xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <!-- Define the wave path with explicit path length -->
-                    <path id="wave" d="M0,100 Q200,20 400,100 T800,100" fill="none" />
-    
-                    <!-- Add text along the wave path -->
-                    <text font-size="24">
-                        <textPath href="#wave" startOffset="0">
-                            Bröd Bullar Kaffe Lunch Soppa Fika Dryck&nbsp;Bröd Bullar Kaffe Lunch Soppa Fika Dryck&nbsp;
-                            <animate attributeName="startOffset" from="0%" to="-100%" dur="20s"
-                                repeatCount="indefinite" />
-                        </textPath>
-                    </text>
-                </svg>
-            </div>
-        </div>
-
-        
-
-
 
         <section class="section section-head">
 
@@ -133,6 +105,25 @@
 
 
     </main>
+
+    <div class="ticker-wrapper">
+        <div class="ticker-container">
+            <svg class="wave-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 50" height="200"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- Define the wave path with explicit path length -->
+                <path id="wave" d="M0,100 Q200,20 400,100 T800,100" fill="none" />
+
+                <!-- Add text along the wave path -->
+                <text font-size="24">
+                    <textPath href="#wave" startOffset="0">
+                        Bröd Bullar Kaffe Lunch Soppa Fika Dryck&nbsp;Bröd Bullar Kaffe Lunch Soppa Fika Dryck&nbsp;
+                        <animate attributeName="startOffset" from="0%" to="-100%" dur="20s"
+                            repeatCount="indefinite" />
+                    </textPath>
+                </text>
+            </svg>
+        </div>
+    </div>
 
 
 
