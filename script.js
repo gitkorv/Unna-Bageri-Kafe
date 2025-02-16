@@ -54,11 +54,21 @@ window.addEventListener("resize", () => {
     widthBasedElements();
 });
 
+const mainWrapper = document.querySelector("main");
+console.log(mainWrapper);
+
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             tickerContainer.classList.add("north")
+            console.log("here");
+            mainWrapper.style.overflowY = "hidden"
+                setTimeout(() => {
+                    mainWrapper.style.overflowY = ""
+
+                }, 500);
+            
         } else {
             tickerContainer.classList.remove("north")
 
@@ -67,7 +77,7 @@ const observer = new IntersectionObserver((entries) => {
 }, {
     root: null, // Uses viewport as the root
     rootMargin: '0px', // No extra margins
-    threshold: 0.1 // Trigger when 50% of the element is visible
+    threshold: 1 // Trigger when 50% of the element is visible
 });
 
 // Select the target element
@@ -107,12 +117,6 @@ const photoWrapperObserver = new IntersectionObserver((entries) => {
 photoItemWrappers.forEach(wrapper => photoWrapperObserver.observe(wrapper));
 
 
-
-
-
-
-
-
 sectionPhotos.addEventListener('wheel', (event) => {
     const atTop = sectionPhotos.scrollTop === 0;
     const atBottom = sectionPhotos.scrollTop + sectionPhotos.clientHeight >= sectionPhotos.scrollHeight;
@@ -140,7 +144,6 @@ sectionPhotos.addEventListener('touchmove', (event) => {
         // Allow outer scroll when at the top or bottom
         return; 
     }
-
     // Prevent parent from scrolling
     event.stopPropagation();
 }, { passive: false });
