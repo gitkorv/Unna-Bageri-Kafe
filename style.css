@@ -41,12 +41,14 @@ body {
 }
 
 main {
-    position: absolute;
-    height: 100%;
+    /* position: relative; */
+    top: 0;
+    height: 100dvh;
     width: 100%;
     overflow-x: hidden;
     scroll-snap-type: y mandatory;
-    /* background-color: blue; */
+    background-color: blue;
+    z-index: 10000;
 }
 
 section {
@@ -55,7 +57,7 @@ section {
     overflow-y: scroll;
 
     scroll-snap-align: start;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -98,7 +100,7 @@ section {
 .unna-anim-logo-wrapper {
     position: relative;
     top: 0;
-    flex: 1.25;
+    flex: 1;
     /* height: 40%; */
     width: 100%;
     display: flex;
@@ -468,7 +470,7 @@ section {
 .ticker-wrapper {
     position: absolute;
     /* position: sticky; */
-    top: 75%;
+    top: 70%;
     /* top: 50%; */
     display: flex;
     /* flex-direction: column; */
