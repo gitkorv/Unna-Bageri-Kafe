@@ -469,8 +469,9 @@ section {
 }
 
 .ticker-container {
-    position: absolute;
-    bottom: 20%;
+    position: relative;
+    top: 60%;
+    /* bottom: 20%; */
 
     /* background-color: orange; */
     display: flex;
