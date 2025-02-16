@@ -228,12 +228,22 @@ section {
     width: 100%;
 }
 
+.photo-item-wrapper {
+    position: relative;
+    width: 100%;
+    /* background-color: #d39c95; */
+
+}
+
 .photo-item {
     position: relative;
-    /* display: flex; */
     width: 100%;
+    left: 0;
+    transition: left .25s ease-in-out;
+}
 
-    /* overflow: hidden; */
+.photo-item.off-frame {
+    left: 100%;
 }
 
 .photo-item img {
@@ -248,18 +258,21 @@ section {
     /* aspect-ratio: 1 /1; */
 }
 
-
-
 .photo-text {
+    position: relative;
     font-size: 1.5rem;
-    /* position: absolute; */
     top: 15%;
     padding-left: 16px;
-    /* background-color:white; */
-    color: var(--unnaGreen);
     color: white;
     text-align: start;
+    left: 0px;
+    transition: left .5s ease-in-out;
+
     /* padding: 4px; */
+}
+
+.photo-text.off-frame {
+    left: 100%
 }
 
 .address, .open {
