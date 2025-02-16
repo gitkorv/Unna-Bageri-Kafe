@@ -55,3 +55,30 @@ document.addEventListener("DOMContentLoaded", () => {
         widthBasedElements();
     });
 });
+
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // entry.target.classList.add('visible'); // Add class when visible
+            console.log("inter");
+            tickerContainer.classList.add("north")
+        } else {
+            // entry.target.classList.remove('visible'); // Remove when out of view
+            console.log("no inter");
+            tickerContainer.classList.remove("north")
+
+        }
+    });
+}, {
+    root: null, // Uses viewport as the root
+    rootMargin: '0px', // No extra margins
+    threshold: 0.1 // Trigger when 50% of the element is visible
+});
+
+// Select the target element
+const targetElement = document.querySelector('.section-photos');
+const tickerContainer = document.querySelector('.ticker-container');
+
+// Observe the target
+if (targetElement) observer.observe(targetElement);
