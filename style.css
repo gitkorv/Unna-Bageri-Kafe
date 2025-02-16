@@ -79,6 +79,8 @@ section {
 
     /* background: black; */
     height: fit-content;
+    scroll-snap-align: start end;
+
     /* padding-bottom: 200px; */
 }
 
