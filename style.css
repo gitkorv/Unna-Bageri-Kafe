@@ -46,8 +46,9 @@ main {
     width: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
+    scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
-    background-color: blue;
+    /* background-color: blue; */
     z-index: 10000;
 }
 
