@@ -36,6 +36,7 @@ body {
     text-align: center;
     overflow: hidden;
     align-items: center;
+    overscroll-behavior: none;
 
 }
 
