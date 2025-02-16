@@ -85,34 +85,34 @@ if (sectionPhotos) observer.observe(sectionPhotos);
 
 
 
-sectionPhotos.addEventListener('wheel', (event) => {
-    const atTop = sectionPhotos.scrollTop === 0;
-    const atBottom = sectionPhotos.scrollTop + sectionPhotos.clientHeight >= sectionPhotos.scrollHeight;
+// sectionPhotos.addEventListener('wheel', (event) => {
+//     const atTop = sectionPhotos.scrollTop === 0;
+//     const atBottom = sectionPhotos.scrollTop + sectionPhotos.clientHeight >= sectionPhotos.scrollHeight;
 
-    if (!atTop && !atBottom) {
-        event.stopPropagation(); // Prevents outer scroll
-    }
-}, { passive: false });
+//     if (!atTop && !atBottom) {
+//         event.stopPropagation(); // Prevents outer scroll
+//     }
+// }, { passive: false });
 
-// Touch event listeners
-sectionPhotos.addEventListener('touchstart', (event) => {
-    startY = event.touches[0].clientY;
-}, { passive: true });
+// // Touch event listeners
+// sectionPhotos.addEventListener('touchstart', (event) => {
+//     startY = event.touches[0].clientY;
+// }, { passive: true });
 
-sectionPhotos.addEventListener('touchmove', (event) => {
-    const currentY = event.touches[0].clientY;
-    const isScrollingDown = startY > currentY;
-    const isScrollingUp = startY < currentY;
+// sectionPhotos.addEventListener('touchmove', (event) => {
+//     const currentY = event.touches[0].clientY;
+//     const isScrollingDown = startY > currentY;
+//     const isScrollingUp = startY < currentY;
 
-    const atTop = sectionPhotos.scrollTop === 0;
-    const atBottom = sectionPhotos.scrollTop + sectionPhotos.clientHeight >= sectionPhotos.scrollHeight;
+//     const atTop = sectionPhotos.scrollTop === 0;
+//     const atBottom = sectionPhotos.scrollTop + sectionPhotos.clientHeight >= sectionPhotos.scrollHeight;
 
-    if ((atTop && isScrollingUp) || (atBottom && isScrollingDown)) {
-        // Allow outer scroll when at the top or bottom
-        return;
-    }
+//     if ((atTop && isScrollingUp) || (atBottom && isScrollingDown)) {
+//         // Allow outer scroll when at the top or bottom
+//         return;
+//     }
 
-    // Prevent outer scrolling
-    event.preventDefault();
-    event.stopPropagation();
-}, { passive: false });
+//     // Prevent outer scrolling
+//     event.preventDefault();
+//     event.stopPropagation();
+// }, { passive: false });
