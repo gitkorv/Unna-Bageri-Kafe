@@ -47,7 +47,7 @@ main {
     width: 100%;
     overflow-x: hidden;
     scroll-snap-type: y mandatory;
-    background-color: blue;
+    /* background-color: blue; */
     z-index: 10000;
 }
 
@@ -468,7 +468,7 @@ section {
 }
 
 .ticker-wrapper {
-    /* position: absolute; */
+    position: absolute;
     /* position: sticky; */
     top: 0;
     /* top: 50%; */
