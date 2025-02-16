@@ -463,7 +463,7 @@ section {
     top: 0;
     display: block;
     width: 100%;
-    height: 100%;
+    height: 100dvh;
     /* height: fit-content; */
     /* background-color: rgb(133, 133, 163); */
     pointer-events: none;
