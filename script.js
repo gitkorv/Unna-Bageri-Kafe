@@ -63,11 +63,11 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             tickerContainer.classList.add("north")
             console.log("here");
-            mainWrapper.style.overflowY = "hidden"
-                setTimeout(() => {
-                    mainWrapper.style.overflowY = ""
+            // mainWrapper.style.overflowY = "hidden"
+            //     setTimeout(() => {
+            //         mainWrapper.style.overflowY = ""
 
-                }, 500);
+            //     }, 500);
             
         } else {
             tickerContainer.classList.remove("north")
@@ -77,7 +77,7 @@ const observer = new IntersectionObserver((entries) => {
 }, {
     root: null, // Uses viewport as the root
     rootMargin: '0px', // No extra margins
-    threshold: 1 // Trigger when 50% of the element is visible
+    threshold: .75 // Trigger when 50% of the element is visible
 });
 
 // Select the target element
