@@ -490,7 +490,7 @@ section {
 
 .ticker-container {
     position: absolute;
-    top: 70%;
+    bottom: 20%;
 
     /* background-color: orange; */
     display: flex;
