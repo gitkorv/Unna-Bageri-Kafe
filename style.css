@@ -75,10 +75,11 @@ section {
 }
 
 .section-photos {
-    background: linear-gradient(var(--unnaOrange), var(--unnaGreen) 15%);
+    background: linear-gradient(var(--unnaOrange), var(--unnaGreen) 25%);
 
     /* background: black; */
-    height: fit-content;
+    /* height: fit-content; */
+    scroll-snap-stop: always;
     scroll-snap-align: start end;
 
     /* padding-bottom: 200px; */
