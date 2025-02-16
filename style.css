@@ -78,7 +78,7 @@ section {
     background: linear-gradient(var(--unnaOrange), var(--unnaGreen) 25%);
 
     /* background: black; */
-    /* height: fit-content; */
+    height: 200%;
     scroll-snap-stop: always;
     scroll-snap-align: start end;
 
@@ -239,11 +239,14 @@ section {
     position: relative;
     width: 100%;
     left: 0;
-    transition: left .25s ease-in-out;
+    opacity: 1;
+    transition: left .15s ease-in-out,
+                opacity .25s ease-in;
 }
 
 .photo-item.off-frame {
-    left: 100%;
+    /* left: 100%; */
+    opacity: 0;
 }
 
 .photo-item img {
@@ -500,9 +503,9 @@ section {
     rotate: 0deg;
     scale: 1.05;
     /* z-index: 10000; */
-    transition: top 1.5s ease-in-out,
-                rotate 1.5s ease-in-out,
-                scale 1.5s ease-in-out;
+    transition: top .75s ease-in-out,
+                rotate .75s ease-in-out,
+                scale .75s ease-in-out;
 }
 
 .ticker-container.north {
