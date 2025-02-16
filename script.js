@@ -58,12 +58,8 @@ window.addEventListener("resize", () => {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // entry.target.classList.add('visible'); // Add class when visible
-            console.log("inter");
             tickerContainer.classList.add("north")
         } else {
-            // entry.target.classList.remove('visible'); // Remove when out of view
-            console.log("no inter");
             tickerContainer.classList.remove("north")
 
         }
@@ -95,11 +91,9 @@ const photoWrapperObserver = new IntersectionObserver((entries) => {
         let photoText = entry.target.querySelector(".photo-text")
 
         if (entry.isIntersecting) {
-            console.log("photo inter");
             photoItem.classList.remove("off-frame");
             photoText.classList.remove("off-frame");
         } else {
-            console.log("no photo inter");
             photoItem.classList.add("off-frame");
             photoText.classList.add("off-frame");
         }
@@ -119,34 +113,35 @@ photoItemWrappers.forEach(wrapper => photoWrapperObserver.observe(wrapper));
 
 
 
-// sectionPhotos.addEventListener('wheel', (event) => {
-//     const atTop = sectionPhotos.scrollTop === 0;
-//     const atBottom = sectionPhotos.scrollTop + sectionPhotos.clientHeight >= sectionPhotos.scrollHeight;
+sectionPhotos.addEventListener('wheel', (event) => {
+    const atTop = sectionPhotos.scrollTop === 0;
+    const atBottom = sectionPhotos.scrollTop + sectionPhotos.clientHeight >= sectionPhotos.scrollHeight;
 
-//     if (!atTop && !atBottom) {
-//         event.stopPropagation(); // Prevents outer scroll
-//     }
-// }, { passive: false });
+    if (!atTop && !atBottom) {
+        event.stopPropagation(); // Prevents outer scroll
+        console.log("top!");
+    }
+}, { passive: false });
 
-// // Touch event listeners
-// sectionPhotos.addEventListener('touchstart', (event) => {
-//     startY = event.touches[0].clientY;
-// }, { passive: true });
+// Touch event listeners
+sectionPhotos.addEventListener('touchstart', (event) => {
+    startY = event.touches[0].clientY;
+}, { passive: true });
 
-// sectionPhotos.addEventListener('touchmove', (event) => {
-//     const currentY = event.touches[0].clientY;
-//     const isScrollingDown = startY > currentY;
-//     const isScrollingUp = startY < currentY;
+sectionPhotos.addEventListener('touchmove', (event) => {
+    const currentY = event.touches[0].clientY;
+    const isScrollingDown = startY > currentY;
+    const isScrollingUp = startY < currentY;
 
-//     const atTop = sectionPhotos.scrollTop === 0;
-//     const atBottom = sectionPhotos.scrollTop + sectionPhotos.clientHeight >= sectionPhotos.scrollHeight;
+    const atTop = sectionPhotos.scrollTop === 0;
+    const atBottom = sectionPhotos.scrollTop + sectionPhotos.clientHeight >= sectionPhotos.scrollHeight;
 
-//     if ((atTop && isScrollingUp) || (atBottom && isScrollingDown)) {
-//         // Allow outer scroll when at the top or bottom
-//         return;
-//     }
+    if ((atTop && isScrollingUp) || (atBottom && isScrollingDown)) {
+        // Allow outer scroll when at the top or bottom
+        return; 
+    }
 
-//     // Prevent outer scrolling
-//     event.preventDefault();
-//     event.stopPropagation();
-// }, { passive: false });
+    // Prevent parent from scrolling
+    event.stopPropagation();
+}, { passive: false });
+

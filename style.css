@@ -78,7 +78,7 @@ section {
     background: linear-gradient(var(--unnaOrange), var(--unnaGreen) 25%);
 
     /* background: black; */
-    height: 200%;
+    /* height: fit-content; */
     scroll-snap-stop: always;
     scroll-snap-align: start end;
 
