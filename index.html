@@ -14,21 +14,25 @@
 
         <section class="section section-head">
 
-            <div class="logo-wrapper">
-                <div class="unna-anim-logo-wrapper">
-                    <div class="unna-anim-logo-container">
-                        <img src="/img/unna-logo-text.svg" alt="" class="unna-just-text">
-                        <!-- <img src="/img/unna-logo-nopattern.svg" alt="" class="nopat"> -->
-                        <div class="unna-dots"></div>
+            <div class="section-head__bg-photo">
+                <div class="logo-wrapper">
+                    <div class="unna-anim-logo-wrapper">
+                        <div class="unna-anim-logo-container">
+                            <img src="/img/unna-logo-text.svg" alt="" class="unna-just-text">
+                            <!-- <img src="/img/unna-logo-nopattern.svg" alt="" class="nopat"> -->
+                            <div class="unna-dots"></div>
+                        </div>
+                    </div>
+                    <div class="logo-text"><span>BAGERI & KAFÉ</span></div>
+                    <div class="address">
+                        <span class="address-span">Centralgatan 24</span>
+                        <span class="address-span">844 31 Hammarstrand</span>
+                        <span class="address-span">Sweden</span>
                     </div>
                 </div>
-                <div class="logo-text"><span>BAGERI & KAFÉ</span></div>
-                <div class="address">
-                    <span class="address-span">Centralgatan 24</span>
-                    <span class="address-span">844 31 Hammarstrand</span>
-                    <span class="address-span">Sweden</span>
-                </div>
             </div>
+
+            
 
         </section>
 
@@ -127,14 +131,14 @@
 
     <div class="ticker-wrapper">
         <div class="ticker-container">
-            <svg class="wave-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 50" height="200"
+            <svg class="wave-text-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 50" height="200"
                 xmlns:xlink="http://www.w3.org/1999/xlink">
                 <!-- Define the wave path with explicit path length -->
-                <path id="wave" d="M0,100 Q200,20 400,100 T800,100" fill="none" />
+                <path id="wave-path" d="M0,100 Q200,20 400,100 T800,100" fill="none" />
 
                 <!-- Add text along the wave path -->
                 <text font-size="24">
-                    <textPath href="#wave" startOffset="0">
+                    <textPath href="#wave-path" startOffset="0">
                         Bröd Bullar Kaffe Lunch Soppa Fika Dryck&nbsp;Bröd Bullar Kaffe Lunch Soppa Fika Dryck&nbsp;
                         <animate attributeName="startOffset" from="0%" to="-100%" dur="20s"
                             repeatCount="indefinite" />

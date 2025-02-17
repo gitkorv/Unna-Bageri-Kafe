@@ -57,7 +57,7 @@ main {
 
 section {
     position: relative;
-    padding: 24px 24px;
+    padding: 16px;
     /* overflow-y: scroll; */
 
     scroll-snap-align: start;
@@ -93,6 +93,29 @@ section {
     padding-bottom: 0px;
 }
 
+.section-head__bg-photo {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden; /* Ensures the pseudo-element stays inside */
+}
+
+.section-head__bg-photo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/img/brod1.jpg);
+    background-size: cover;
+    background-position: bottom ;
+    background-repeat: no-repeat;
+    scale: 1.25;
+    filter: brightness(60%);
+}
+
+
 .logo-wrapper {
     /* visibility: hidden; */
     position: relative;
@@ -101,6 +124,8 @@ section {
     flex-direction: column;
     height: 100%;
     width: 100%;
+    z-index: 100;
+    /* filter: none; */
     /* background-color: orange; */
 }
 
@@ -126,7 +151,7 @@ section {
     justify-content: center;
     height: fit-content;
     width: fit-content;
-    scale: 1.25;
+    scale: 1;
     /* scale: 2; */
     transform-origin: bottom;
     /* background-color: green; */
@@ -160,7 +185,7 @@ section {
     height: 200px;
     width: 200px;
     background: url(/img/bg-pattern.png);
-    background-size: 600%;
+    background-size: 500%;
     clip-path: path('M188.95,85.58c-2.18-1.88-2.74-3.39-1.88-6.23,1.82-6.04,2.59-12.28,3.1-18.63C194.39,21.72,170.36,1.74,133.38,0c-37.52.3-54.47,9.61-82.75,33.01C23.83,59.95.87,83.89.01,126.49c-.27,16.62,3.69,24.15,13.42,37.12,14.62,19.4,41.01,28.02,64.58,24.65,2.17-.53,4.04-.27,5.97.67,4.62,2.24,9.33,3.89,14.55,4.5,21.02,2.42,42.24-6.75,56.71-21.77,15.08-15.84,28.24-33.53,37.58-53.36,5.72-9.4,4.47-25.2-3.88-32.72Z');
     /* z-index: 1000; */
     /* transform-origin: left; */
@@ -254,9 +279,9 @@ section {
 
 .photo-item img {
     position: relative;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     /* border-top: 4px solid white; */
-    border-radius: 24px;
+    /* border-radius: 24px; */
     width: 100%;
     height: auto;
     object-fit: contain;
@@ -266,9 +291,9 @@ section {
 
 .photo-text {
     position: relative;
-    font-size: 1.5rem;
+    font-size: 2rem;
     top: 15%;
-    padding-left: 16px;
+    /* padding-left: 16px; */
     color: white;
     text-align: start;
     left: 0px;
@@ -329,6 +354,7 @@ section {
     width: 100%;
     height: 100%;
     background: url('/img/bg-pattern.png');
+    background-attachment: fixed;
     /* z-index: 0; Keep it behind the SVG */
     /* clip-path: circle(0% at 0% 0%);
     -webkit-clip-path: circle(0% at 0% 0%); */
@@ -475,10 +501,7 @@ section {
 }
 
 
-#wave {
-    stroke: white;
-    stroke-width: 50px;
-}
+
 
 .ticker-wrapper {
     position: absolute;
@@ -494,49 +517,72 @@ section {
 
 .ticker-container {
     position: relative;
-    top: 60%;
+    top: 0;
+
     /* bottom: 20%; */
 
     /* background-color: orange; */
     display: flex;
     /* flex-direction: column; */
     width: 100%;
-    height: 100px;
+    height: 100%;
     /* z-index: 5000; */
     rotate: 0deg;
-    scale: 1.05;
+    scale: 1;
+        transform-origin: right;
+
     /* z-index: 10000; */
-    transition: top .75s ease-in-out,
-                rotate .75s ease-in-out,
-                scale .75s ease-in-out;
+
 }
 
 .ticker-container.north {
     rotate: 40deg;
-    top: 75px;
+    /* top: 25%; */
     scale: 1.5;
 }
 
-.ticker-wrapper svg {
-    height: auto;
-    /* rotate: 10deg; */
-    transform-origin: right;
+#wave-path {
+    /* stroke: white; */
+    stroke-width: 5px;
 }
 
-.wave-text {
+.wave-text-svg {
     position: absolute;
+    fill: var(--unnaGreen);
+
+    top: 60%;
+    left: 0;
+    /* right: 0px; */
+    /* background-color: blue; */
     width: 100%;
-    height: 150px;
+    height: 100px;
     overflow: visible;
+    scale: 1;
+    transform-origin: bottom;
+    transition: top .75s ease-in-out,
+                rotate .75s ease-in-out,
+                left .75s ease-in-out,
+                transform .75s ease-in-out,
+                scale .75s ease-in-out;
     /* stroke-width: 1px; */
     /* z-index: 500; */
+}
+
+.wave-text-svg.north {
+    rotate: 45deg;
+    top: 10%;
+    left: 20%;
+    fill: white;
+
+    /* transform: translate(10px, -150%); */
+    /* right: -20%; */
+    scale: 1.25;
 }
 
 text {
     word-spacing: 1rem;
     letter-spacing: .25rem;
     font-size: 2.4rem;
-    fill: var(--unnaGreen);
     /* fill: black; */
     transform: translateY(12px); /* Move text down */
 
@@ -557,9 +603,9 @@ textPath {
 } */
 
 @media (max-height: 750px) {
-    .ticker-container {
+    /* .ticker-container {
         top: 70%;
-    }
+    } */
 }
 @media (min-width: 374px) {
     .logo img {
@@ -601,7 +647,7 @@ textPath {
         width: auto;    
     }
 
-    .ticker-container {
+    /* .ticker-container {
         transform-origin: left;
         rotate: 35deg;
         top: -24px;
@@ -610,10 +656,9 @@ textPath {
     }
 
     .ticker-container.north {
-        /* rotate: 40deg; */
         top: 25%;
         scale: .8;
-    }
+    } */
 
     @keyframes moveCircle1 {
         0% {
