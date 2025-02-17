@@ -571,12 +571,21 @@ textPath {
 @media (min-width: 767px) {
 
     .section-head {
+        padding-top: 100px;
         align-items: start;
-        justify-content: center;
+        justify-content: start;
     }
 
     .logo-wrapper {
-        width: 65%;
+        align-self: flex-end;
+        justify-self: start;
+        /* align-self: flex-start; */
+        justify-content: start;
+        /* align-items: end; */
+        /* justify-content: end; */
+        width: 50%;
+        height: 75%;
+        /* background-color: #d39c95; */
     }
     
     .logo img {
@@ -588,15 +597,22 @@ textPath {
         font-size: 3rem;
     }
 
-    .ticker-wrapper {
-        /* top: 20px; */
-        align-self: flex-end;
-        width: 80%;
+    .photo-item-wrapper {
+        width: auto;    
     }
-    .ticker-wrapper svg {
-        top: 150px;
-        right: -50px;
-        rotate: 25deg;
+
+    .ticker-container {
+        transform-origin: left;
+        rotate: 35deg;
+        top: -24px;
+        left: 50px;
+        scale: 1.4;
+    }
+
+    .ticker-container.north {
+        /* rotate: 40deg; */
+        top: 25%;
+        scale: .8;
     }
 
     @keyframes moveCircle1 {
@@ -653,9 +669,8 @@ textPath {
     }
 }
 
-@media (min-width: 1023px) {
+/* @media (min-width: 1023px) {
     .ticker-wrapper {
-        /* top: 20px; */
         align-self: flex-end;
         width: 70%;
     }
@@ -664,4 +679,4 @@ textPath {
         right: -50px;
         rotate: 25deg;
     }
-}
+} */
