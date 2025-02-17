@@ -306,6 +306,16 @@ section {
     left: 100%
 }
 
+.open-container {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* overflow: hidden; */
+    /* background-color: black; */
+}
+
 .address, .open {
     width: 100%;
     margin-top: 16px;
@@ -333,7 +343,7 @@ section {
 
 .social {
     padding-top: 16px;
-    flex: 1.2;
+    flex: 1;
     width: 100%;
     gap: 8px;
     /* background-color: teal; */
@@ -349,10 +359,10 @@ section {
     /* visibility: hidden; */
     /* padding: 24px; */
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    bottom: -16px;
+    left: -16px;
+    width: 100vw;
+    height: 100vh;
     background: url('/img/bg-pattern.png');
     /* z-index: 0; Keep it behind the SVG */
     /* clip-path: circle(0% at 0% 0%);
@@ -365,8 +375,10 @@ section {
 
     position: absolute;
     top: 0;
+    /* flex: 1; */
     height: 100%;
-    width: 75%;
+    /* flex: 1; */
+    width: 100%;
     /* background-color: orange; */
     pointer-events: none;
 }
