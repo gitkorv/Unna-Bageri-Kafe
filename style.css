@@ -9,6 +9,11 @@
     --unnaOrange: #d39c95;
 }
 
+html, body {
+    overscroll-behavior: none;
+}
+
+
 html {
     position: absolute;
     top: 0;
@@ -42,22 +47,26 @@ body {
 
 main {
     position: absolute;
+    display: block;
     top: 0;
     height: 100dvh;
     width: 100%;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     /* overflow-y: hidden; */
     /* scroll-behavior: unset; */
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
+    /* pointer-events: none; */
     /* background-color: blue; */
-    /* z-index: 10000; */
+    z-index: 10000;
 }
 
 section {
     position: relative;
-    padding: 24px 24px;
+    /* padding: 16px; */
+
+    padding: 16px;
     /* overflow-y: scroll; */
 
     scroll-snap-align: start;
@@ -67,30 +76,59 @@ section {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    overflow-x: hidden;
-    /* z-index: -200; */
+    /* overflow-x: hidden; */
+    /* z-index: 200; */
     /* background-color: var(--unnaGreen); */
 }
 
 .section-head {
+    /* position: absolute; */
     background: linear-gradient(var(--unnaGreen) 40%, var(--unnaOrange));
     /* height: 100%; */
+    /* pointer-events: none; */
 }
 
 .section-photos {
     background: linear-gradient(var(--unnaOrange), var(--unnaGreen) 25%);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: block;
 
     /* background: black; */
     /* height: fit-content; */
-    scroll-snap-stop: always;
-    scroll-snap-align: start end;
+    /* scroll-snap-stop: always; */
+    /* scroll-snap-align: start ; */
 
-    /* padding-bottom: 200px; */
+    padding-bottom: 200px;
 }
 
 .section-open {
     background: linear-gradient(var(--unnaGreen) 40%, var(--unnaOrange));
     padding-bottom: 0px;
+}
+
+.head__image {
+    /* visibility: hidden; */
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    
+}
+
+.head__image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(/img/brod1.jpg) no-repeat center/cover;
+    filter: brightness(60%);
+    transform: scale(1.1);
+    transform-origin: bottom left;
+    pointer-events: none;
 }
 
 .logo-wrapper {
@@ -101,6 +139,7 @@ section {
     flex-direction: column;
     height: 100%;
     width: 100%;
+    z-index: 100;
     /* background-color: orange; */
 }
 
@@ -126,7 +165,7 @@ section {
     justify-content: center;
     height: fit-content;
     width: fit-content;
-    scale: 1.25;
+    scale: 1;
     /* scale: 2; */
     transform-origin: bottom;
     /* background-color: green; */
@@ -160,12 +199,13 @@ section {
     height: 200px;
     width: 200px;
     background: url(/img/bg-pattern.png);
-    background-size: 600%;
+    background-size: 500%;
     clip-path: path('M188.95,85.58c-2.18-1.88-2.74-3.39-1.88-6.23,1.82-6.04,2.59-12.28,3.1-18.63C194.39,21.72,170.36,1.74,133.38,0c-37.52.3-54.47,9.61-82.75,33.01C23.83,59.95.87,83.89.01,126.49c-.27,16.62,3.69,24.15,13.42,37.12,14.62,19.4,41.01,28.02,64.58,24.65,2.17-.53,4.04-.27,5.97.67,4.62,2.24,9.33,3.89,14.55,4.5,21.02,2.42,42.24-6.75,56.71-21.77,15.08-15.84,28.24-33.53,37.58-53.36,5.72-9.4,4.47-25.2-3.88-32.72Z');
     /* z-index: 1000; */
     /* transform-origin: left; */
     /* transform: translate(-49%, 2px); */
     /* transform: translateY(-50%); */
+    /* background-attachment: fixed; */
     animation: dotanim 15s ease-in-out infinite;
 }
 
@@ -220,15 +260,19 @@ section {
     font-style: normal;
 }
 
+
+
+
 .photo-container {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: center;
     /* align-items: center; */
-    /* flex-direction: column; */
+    flex-direction: column;
     gap: 16px;
     position: relative;
     width: 100%;
+    /* background-color: #d39c95; */
 }
 
 .photo-item-wrapper {
@@ -254,21 +298,21 @@ section {
 
 .photo-item img {
     position: relative;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     /* border-top: 4px solid white; */
-    border-radius: 24px;
+    /* border-radius: 24px; */
     width: 100%;
     height: auto;
     object-fit: contain;
+    /* filter: brightness(60%); */
     
     /* aspect-ratio: 1 /1; */
 }
 
 .photo-text {
     position: relative;
-    font-size: 1.5rem;
+    font-size: 2rem;
     top: 15%;
-    padding-left: 16px;
     color: white;
     text-align: start;
     left: 0px;
@@ -354,6 +398,7 @@ section {
     width: 10px;
     /* border-radius: 50%; */
     background: url('/img/bg-pattern.png');
+    background-attachment: fixed;
     transition: 5s ease-in-out;
     /* z-index: 100; */
     pointer-events: none; /* Ensure circles don't block interaction */
@@ -475,10 +520,7 @@ section {
 }
 
 
-#wave {
-    stroke: white;
-    stroke-width: 50px;
-}
+
 
 .ticker-wrapper {
     position: absolute;
@@ -495,6 +537,10 @@ section {
 .ticker-container {
     position: relative;
     top: 60%;
+    left: 0;
+    fill: var(--unnaGreen);
+    /* fill: black; */
+
     /* bottom: 20%; */
 
     /* background-color: orange; */
@@ -504,23 +550,30 @@ section {
     height: 100px;
     /* z-index: 5000; */
     rotate: 0deg;
-    scale: 1.05;
+    scale: 1;
     /* z-index: 10000; */
     transition: top .75s ease-in-out,
                 rotate .75s ease-in-out,
-                scale .75s ease-in-out;
+                left .75s ease-in-out;
 }
 
 .ticker-container.north {
-    rotate: 40deg;
+    rotate: 45deg;
     top: 75px;
-    scale: 1.5;
+    left: 25%;
+    fill: white;
+
 }
 
 .ticker-wrapper svg {
     height: auto;
-    /* rotate: 10deg; */
-    transform-origin: right;
+    /* rotate: 20deg; */
+    transform-origin: center;
+}
+
+#wave {
+    /* stroke: white; */
+    stroke-width: 5px;
 }
 
 .wave-text {
@@ -533,10 +586,9 @@ section {
 }
 
 text {
-    word-spacing: 1rem;
+    word-spacing: 1.2rem;
     letter-spacing: .25rem;
-    font-size: 2.4rem;
-    fill: var(--unnaGreen);
+    font-size: 3rem;
     /* fill: black; */
     transform: translateY(12px); /* Move text down */
 

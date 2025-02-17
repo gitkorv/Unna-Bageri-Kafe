@@ -61,16 +61,13 @@ console.log(mainWrapper);
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            tickerContainer.classList.add("north")
-            console.log("here");
-            // mainWrapper.style.overflowY = "hidden"
-            //     setTimeout(() => {
-            //         mainWrapper.style.overflowY = ""
-
-            //     }, 500);
-            
-        } else {
             tickerContainer.classList.remove("north")
+            // console.log("is intersecting");
+
+        } else {
+            // console.log("not intersecting");
+
+            tickerContainer.classList.add("north")
 
         }
     });
@@ -81,11 +78,12 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 // Select the target element
+const sectionHead = document.querySelector('.section-head');
 const sectionPhotos = document.querySelector('.section-photos');
 const tickerContainer = document.querySelector('.ticker-container');
 
 // Observe the target
-if (sectionPhotos) observer.observe(sectionPhotos);
+if (sectionHead) observer.observe(sectionHead);
 
 
 
