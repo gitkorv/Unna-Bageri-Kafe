@@ -354,7 +354,6 @@ section {
     width: 100%;
     height: 100%;
     background: url('/img/bg-pattern.png');
-    background-attachment: fixed;
     /* z-index: 0; Keep it behind the SVG */
     /* clip-path: circle(0% at 0% 0%);
     -webkit-clip-path: circle(0% at 0% 0%); */
@@ -380,6 +379,8 @@ section {
     width: 10px;
     /* border-radius: 50%; */
     background: url('/img/bg-pattern.png');
+    background-attachment: fixed;
+
     transition: 5s ease-in-out;
     /* z-index: 100; */
     pointer-events: none; /* Ensure circles don't block interaction */
