@@ -57,7 +57,6 @@ main {
 
 section {
     position: relative;
-    padding: 16px;
     /* overflow-y: scroll; */
 
     scroll-snap-align: start;
@@ -73,12 +72,13 @@ section {
 }
 
 .section-head {
+    padding: 16px;
+
     background: linear-gradient(var(--unnaGreen) 40%, var(--unnaOrange));
     /* height: 100%; */
 }
 
 .section-photos {
-    background: linear-gradient(var(--unnaOrange), var(--unnaGreen) 25%);
 
     /* background: black; */
     /* height: fit-content; */
@@ -86,11 +86,6 @@ section {
     scroll-snap-align: start end;
 
     /* padding-bottom: 200px; */
-}
-
-.section-open {
-    background: linear-gradient(var(--unnaGreen) 40%, var(--unnaOrange));
-    padding-bottom: 0px;
 }
 
 .section-head__bg-photo {
@@ -245,15 +240,30 @@ section {
     font-style: normal;
 }
 
+.address {
+    width: 100%;
+    margin-top: 16px;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    pointer-events: none;
+    /* background-color: black; */
+}
+
 .photo-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     /* align-items: center; */
     /* flex-direction: column; */
-    gap: 16px;
+    gap: 32px;
     position: relative;
     width: 100%;
+    padding: 16px;
+
+    background: linear-gradient(var(--unnaOrange), var(--unnaGreen) 25%);
+
 }
 
 .photo-item-wrapper {
@@ -307,24 +317,41 @@ section {
 }
 
 .open-container {
+    /* padding: 0 16px 0; */
     position: relative;
     min-height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    background: linear-gradient(var(--unnaGreen) 40%, var(--unnaOrange));
+
     /* overflow: hidden; */
     /* background-color: black; */
 }
 
-.address, .open {
+.open-content {
+    padding-top: 30%;
+    /* height: fit-content; */
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    gap: 16px;
+    /* background-color: antiquewhite; */
+}
+
+.open {
     width: 100%;
-    margin-top: 16px;
-    flex: 1;
+    /* margin-top: 16px; */
+    /* flex: 1; */
     text-align: center;
     display: flex;
     flex-direction: column;
     pointer-events: none;
-    /* background-color: antiquewhite; */
+    /* background-color: black; */
 }
 
 .address {
@@ -342,8 +369,8 @@ section {
 }
 
 .social {
-    padding-top: 16px;
-    flex: 1;
+    /* padding-top: 16px; */
+    /* flex: 1; */
     width: 100%;
     gap: 8px;
     /* background-color: teal; */
@@ -359,9 +386,9 @@ section {
     /* visibility: hidden; */
     /* padding: 24px; */
     position: absolute;
-    bottom: -16px;
-    left: -16px;
-    width: 100vw;
+    /* bottom: -16px; */
+    /* left: -16px; */
+    width: 100%;
     height: 100vh;
     background: url('/img/bg-pattern.png');
     /* z-index: 0; Keep it behind the SVG */
