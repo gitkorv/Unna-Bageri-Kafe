@@ -59,7 +59,7 @@ main {
     scroll-snap-type: y mandatory;
     /* pointer-events: none; */
     /* background-color: blue; */
-    z-index: 10000;
+    /* z-index: 10000; */
 }
 
 section {
