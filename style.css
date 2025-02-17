@@ -9,9 +9,9 @@
     --unnaOrange: #d39c95;
 }
 
-html, body {
+/* html, body {
     overscroll-behavior: none;
-}
+} */
 
 
 html {
@@ -39,9 +39,9 @@ body {
     color: white;
     font-size: 2rem;
     text-align: center;
-    overflow: hidden;
+    /* overflow: hidden; */
     align-items: center;
-    overscroll-behavior: none;
+    /* overscroll-behavior: none; */
 
 }
 
@@ -52,14 +52,8 @@ main {
     height: 100dvh;
     width: 100%;
     overflow-x: hidden;
-    overflow-y: auto;
-    /* overflow-y: hidden; */
-    /* scroll-behavior: unset; */
-    scroll-behavior: smooth;
+    overflow-y: scroll;
     scroll-snap-type: y mandatory;
-    /* pointer-events: none; */
-    /* background-color: blue; */
-    /* z-index: 10000; */
 }
 
 section {
@@ -90,7 +84,7 @@ section {
 
 .section-photos {
     background: linear-gradient(var(--unnaOrange), var(--unnaGreen) 25%);
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     overflow-x: hidden;
     display: block;
 
@@ -99,7 +93,7 @@ section {
     /* scroll-snap-stop: always; */
     /* scroll-snap-align: start ; */
 
-    padding-bottom: 200px;
+    /* padding-bottom: 200px; */
 }
 
 .section-open {
@@ -264,15 +258,19 @@ section {
 
 
 .photo-container {
+    position: relative;
+    top: 0;
     display: flex;
     /* flex-wrap: wrap; */
     justify-content: center;
     /* align-items: center; */
     flex-direction: column;
     gap: 16px;
-    position: relative;
     width: 100%;
-    /* background-color: #d39c95; */
+    height: fit-content;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: #d39c95;
 }
 
 .photo-item-wrapper {
