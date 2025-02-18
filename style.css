@@ -337,7 +337,7 @@ section {
 .photo-text-para {
     color: var(--unnaGreen);
     padding-right: 25%;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 .photo-text.off-frame {
