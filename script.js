@@ -58,11 +58,11 @@ const mainWrapper = document.querySelector("main");
 console.log(mainWrapper);
 
 
-const observer = new IntersectionObserver((entries) => {
+const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            tickerSVG.classList.remove("north")
-            console.log("here");
+            tickerSVG.classList.add("north")
+            console.log("in");
             // mainWrapper.style.overflowY = "hidden"
             //     setTimeout(() => {
             //         mainWrapper.style.overflowY = ""
@@ -70,23 +70,24 @@ const observer = new IntersectionObserver((entries) => {
             //     }, 500);
             
         } else {
-            tickerSVG.classList.add("north")
-
+            tickerSVG.classList.remove("north")
+            console.log("out");
         }
     });
 }, {
     root: null, // Uses viewport as the root
     rootMargin: '0px', // No extra margins
-    threshold: .75 // Trigger when 50% of the element is visible
+    threshold: 0.5 // Trigger when 50% of the element is visible
 });
 
 // Select the target element
+const photoSection = document.querySelector('.section-photos');
 const sectionHead = document.querySelector('.section-head');
 const tickerContainer = document.querySelector('.ticker-container');
 const tickerSVG = document.querySelector('.wave-text-svg');
 
 // Observe the target
-if (sectionHead) observer.observe(sectionHead);
+if (photoSection) sectionObserver.observe(photoSection);
 
 
 
