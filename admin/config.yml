@@ -30,3 +30,5 @@ logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 
 # Add site links in Decap CMS (optional)
 site_url: https://unna-bageri-kafe.netlify.app
+
+media_folder: "img/uploads" # Media files will be stored in the repo under img/uploads
