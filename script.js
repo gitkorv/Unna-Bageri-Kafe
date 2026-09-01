@@ -8,6 +8,115 @@ const patternBackground = document.querySelector('.pattern-background');
 let angle = 0;
 let sizeAngle = 0;
 
+const DOT_ANIMATION_DURATION = 15000;
+const PATH_NUMBER = /-?\d*\.?\d+/g;
+
+function getDotClipFrames() {
+    for (const sheet of document.styleSheets) {
+        let rules;
+
+        try {
+            rules = sheet.cssRules;
+        } catch {
+            continue;
+        }
+
+        for (const rule of rules) {
+            if (rule.name !== "dotanim" || !rule.cssRules) continue;
+
+            return [...rule.cssRules]
+                .map((keyframe) => {
+                    const clipPath = keyframe.style.clipPath || keyframe.style.webkitClipPath;
+                    const path = clipPath.trim().match(/^path\((['"]?)(.*)\1\)$/)?.[2];
+
+                    if (!path) return null;
+
+                    return {
+                        offset: keyframe.keyText === "from"
+                            ? 0
+                            : keyframe.keyText === "to"
+                                ? 1
+                                : parseFloat(keyframe.keyText) / 100,
+                        path
+                    };
+                })
+                .filter(Boolean)
+                .sort((a, b) => a.offset - b.offset);
+        }
+    }
+
+    return [];
+}
+
+function buildPathMorph(paths) {
+    const template = paths[0].replace(PATH_NUMBER, "\0");
+    const pathCommands = paths[0].match(/[a-z]/gi).join("");
+    const pointSets = paths.map((path) => path.match(PATH_NUMBER).map(Number));
+    const matchingPaths = paths.every((path, index) => {
+        return path.match(/[a-z]/gi).join("") === pathCommands
+            && pointSets[index].length === pointSets[0].length;
+    });
+
+    if (!matchingPaths) return null;
+
+    return (fromPathIndex, toPathIndex, progress) => {
+        let pointIndex = 0;
+        const fromPoints = pointSets[fromPathIndex];
+        const toPoints = pointSets[toPathIndex];
+
+        return template.replace(/\0/g, () => {
+            const value = fromPoints[pointIndex] + (toPoints[pointIndex] - fromPoints[pointIndex]) * progress;
+            pointIndex += 1;
+            return Number(value.toFixed(3));
+        });
+    };
+}
+
+function easeInOut(progress) {
+    return progress < 0.5
+        ? 2 * progress * progress
+        : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+}
+
+function setupUnnaDotsAnimation() {
+    const unnaDots = document.querySelector(".unna-dots");
+
+    if (!unnaDots) return;
+
+    const frames = getDotClipFrames();
+    const morphPath = frames.length > 1 && buildPathMorph(frames.map((frame) => frame.path));
+
+    if (!morphPath) return;
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const clipPath = `path('${frames[0].path}')`;
+        unnaDots.style.clipPath = clipPath;
+        unnaDots.style.webkitClipPath = clipPath;
+        return;
+    }
+
+    function animateUnnaDots(time) {
+        const progress = (time % DOT_ANIMATION_DURATION) / DOT_ANIMATION_DURATION;
+        const nextFrameIndex = frames.findIndex((frame) => frame.offset >= progress);
+        const fromFrameIndex = Math.max(0, nextFrameIndex - 1);
+        const toFrameIndex = nextFrameIndex === -1 ? 0 : nextFrameIndex;
+        const fromFrame = frames[fromFrameIndex];
+        const toFrame = frames[toFrameIndex];
+        const frameDistance = toFrame.offset - fromFrame.offset || 1;
+        const frameProgress = easeInOut((progress - fromFrame.offset) / frameDistance);
+        const clipPath = `path('${morphPath(fromFrameIndex, toFrameIndex, frameProgress)}')`;
+
+        unnaDots.style.clipPath = clipPath;
+        unnaDots.style.webkitClipPath = clipPath;
+
+        requestAnimationFrame(animateUnnaDots);
+    }
+
+    requestAnimationFrame(animateUnnaDots);
+}
+
+setupUnnaDotsAnimation();
+
 // Animation function
 function animate() {
     // Slight movement around the center
@@ -149,4 +258,3 @@ photoItemWrappers.forEach(wrapper => photoWrapperObserver.observe(wrapper));
 //     // Prevent parent from scrolling
 //     event.stopPropagation();
 // }, { passive: false });
-
